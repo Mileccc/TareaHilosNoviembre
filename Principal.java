@@ -10,16 +10,23 @@ public class Principal {
         miVentana.añadirLabel(imagenTortuga);
         miVentana.añadirLabel(imagenConejo);
 
-        Animal tortuga = new Animal(imagenTortuga,5000,"Tortuga");
-        Animal conejo = new Animal(imagenConejo,1000,"Conejo");
+        Animal tortuga = new Animal(imagenTortuga,5000,"Tortuga",1);
+        Animal conejo = new Animal(imagenConejo,1000,"Conejo",2);
 
         Thread hiloTortuga = new Thread(tortuga);
         Thread hiloConejo = new Thread(conejo);
 
+        hiloVentana.start();
         hiloTortuga.start();
         hiloConejo.start();
 
-        hiloVentana.start();
+        try {
+            hiloConejo.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        
 
     }
 }
