@@ -16,10 +16,12 @@ public class Principal {
         Thread hiloTortuga = new Thread(tortuga);
         Thread hiloConejo = new Thread(conejo);
 
+        hiloVentana.start();
+
         hiloTortuga.start();
         hiloConejo.start();
 
-        hiloVentana.start();
+        
 
     }
 }
