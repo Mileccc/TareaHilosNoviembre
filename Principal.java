@@ -20,8 +20,5 @@ public class Principal {
 
         hiloTortuga.start();
         hiloConejo.start();
-
-        
-
     }
 }
