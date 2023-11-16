@@ -8,6 +8,7 @@ public class Ventana implements Runnable {
     private JFrame ventana;
     private JPanel panel;
 
+    // Constructor para inicializar y configurar la ventana y el panel
     public Ventana(String titulo, int ancho, int alto) {
         ventana = new JFrame(titulo);
         ventana.setSize(ancho, alto);
@@ -15,10 +16,10 @@ public class Ventana implements Runnable {
 
         panel = new JPanel();
         panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-
         ventana.setContentPane(panel);
         panel.setLayout(null);
 
+        // Añadir imagen de fondo
         JLabel fondo = new JLabel(new ImageIcon("ImagenPista.png"));
         fondo.setBounds(0, 0, ancho, alto);
         panel.add(fondo);
@@ -27,13 +28,14 @@ public class Ventana implements Runnable {
         ventana.setLocationRelativeTo(null);
     }
 
+    // Método para añadir etiquetas con imágenes al panel
     public void añadirLabel(Label imagen) {
-
         panel.add(imagen);
         panel.setComponentZOrder(imagen, 0);
     }
 
+    @Override
     public void run() {
-        ventana.setVisible(true);
+        ventana.setVisible(true); // Hacer visible la ventana
     }
 }
