@@ -4,10 +4,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Ventana implements Runnable{
+public class Ventana implements Runnable {
     private JFrame ventana;
     private JPanel panel;
-    private JLabel imagen;
 
     public Ventana(String titulo, int ancho, int alto) {
         ventana = new JFrame(titulo);
@@ -20,16 +19,21 @@ public class Ventana implements Runnable{
         ventana.setContentPane(panel);
         panel.setLayout(null);
 
+        JLabel fondo = new JLabel(new ImageIcon("ImagenPista.png"));
+        fondo.setBounds(0, 0, ancho, alto);
+        panel.add(fondo);
+        panel.setComponentZOrder(fondo, panel.getComponentCount() - 1);
+
         ventana.setLocationRelativeTo(null);
     }
 
-    public void añadirLabel(Label imagen){
-        
+    public void añadirLabel(Label imagen) {
+
         panel.add(imagen);
+        panel.setComponentZOrder(imagen, 0);
     }
 
-
-    public void run(){
+    public void run() {
         ventana.setVisible(true);
     }
 }
