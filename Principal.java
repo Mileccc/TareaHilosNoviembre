@@ -3,6 +3,7 @@ public class Principal {
 
         Ventana miVentana = new Ventana("Mi Ventana", 1300, 700);
         Thread hiloVentana = new Thread(miVentana);
+
         Label imagenTortuga = new Label(0, 350, 300, 300, "tortuga.png");
         Label imagenConejo = new Label(0, 050, 300, 300, "conejo.png");
 
@@ -18,6 +19,7 @@ public class Principal {
         hiloTortuga.start();
         hiloConejo.start();
 
+        hiloVentana.start();
 
     }
 }
